@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 const movies = [
@@ -11,11 +11,15 @@ const movies = [
 ]
 
 export default function App() {
-  const [count, setCount] = useState(0)
+  const [selectGenre, setselectGenre] = useState("")
 
   return (
     <>
+      <div>
+        <h1>Filtraggio Genere Film 🍿</h1>
 
+
+      </div>
     </>
   )
 }
