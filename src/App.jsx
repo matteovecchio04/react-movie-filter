@@ -12,6 +12,18 @@ const movies = [
 
 export default function App() {
   const [selectGenre, setselectGenre] = useState("")
+  const [filterMovies, setfilterMovies] = useState(movies)
+
+  useEffect(() => {
+    if (selectGenre == "") {
+      setfilterMovies(movies)
+      // if the genere is set to all, show all the genres
+    }
+    else {
+      setfilterMovies(movies.filter((film) => film.genre === selectGenre))
+      // filters the film by the genre
+    }
+  })
 
   return (
     <>
@@ -29,7 +41,7 @@ export default function App() {
 
         <ul className='list-unstyled'>
           {
-            movies.map((film) => (
+            filterMovies.map((film) => (
               <li key={film.title}>
                 {film.title} - {film.genre}
               </li>
