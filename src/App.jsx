@@ -15,11 +15,10 @@ export default function App() {
 
   return (
     <>
-      <div>
+      <div className='text-center'>
         <h1>Filtraggio Genere Film 🍿</h1>
 
-        <strong>Seleziona il genere:</strong>
-
+        <strong className='mx-2'>Seleziona il genere:</strong>
         <select value={selectGenre} onChange={(e) => setselectGenre(e.target.value)}>
           <option value="">Tutti i generi</option>
           <option value="Fantascienza">Fantascienza</option>
@@ -28,8 +27,21 @@ export default function App() {
           <option value="Azione">Azione</option>
         </select>
 
+        <ul className='list-unstyled'>
+          {
+            movies.filter((film) => {
+              if (selectGenre == "") return true
+              // uso il valore booleano per semplificare la logica dell'if
+              else return film.genre == selectGenre
+            })
+              .map((film) => (
+                <li key={film.title}>
+                  {film.title} - {film.genre}
+                </li>
+              ))
+          }
+        </ul>
       </div>
     </>
   )
 }
-
