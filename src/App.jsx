@@ -29,16 +29,11 @@ export default function App() {
 
         <ul className='list-unstyled'>
           {
-            movies.filter((film) => {
-              if (selectGenre == "") return true
-              // uso il valore booleano per semplificare la logica dell'if
-              else return film.genre == selectGenre
-            })
-              .map((film) => (
-                <li key={film.title}>
-                  {film.title} - {film.genre}
-                </li>
-              ))
+            movies.map((film) => (
+              <li key={film.title}>
+                {film.title} - {film.genre}
+              </li>
+            ))
           }
         </ul>
       </div>
