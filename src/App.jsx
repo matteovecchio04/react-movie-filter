@@ -18,6 +18,15 @@ export default function App() {
       <div>
         <h1>Filtraggio Genere Film 🍿</h1>
 
+        <strong>Seleziona il genere:</strong>
+
+        <select value={selectGenre} onChange={(e) => setselectGenre(e.target.value)}>
+          <option value="">Tutti i generi</option>
+          <option value="Fantascienza">Fantascienza</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Romantico">Romantico</option>
+          <option value="Azione">Azione</option>
+        </select>
 
       </div>
     </>
